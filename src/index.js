@@ -3,12 +3,16 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ElementProviderRoute } from './context/RouteContext';
+import { ElementProviderOpenAi } from './hooks/OpenAiContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <ElementProviderRoute>
+    <ElementProviderOpenAi>
+      <App />
+      </ElementProviderOpenAi>
+  </ElementProviderRoute>
 );
 
 // If you want to start measuring performance in your app, pass a function

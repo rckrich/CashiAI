@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
 
+import './styles/App.css';
+import React, { useContext } from "react";
+
+import { ElementContextRoute } from "./context/RouteContext";
+import { LoadingPage } from './pages/LoadingPage';
+import { MainPage } from './pages/MainPage';
 function App() {
+  const {route} = useContext(ElementContextRoute);
+
+  let currentPage ;
+
+  switch (route) {
+    case "":
+      currentPage = (<LoadingPage></LoadingPage>)
+      break;
+    case "Main":
+      currentPage = (<MainPage></MainPage>)
+      break;
+    default:
+      currentPage = (<LoadingPage></LoadingPage>)
+      break;
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <>{currentPage}</>
     </div>
   );
 }
