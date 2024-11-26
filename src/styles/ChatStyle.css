@@ -1,14 +1,15 @@
 .Container{
     width: 100vw;
-    height: 100vh;
-
+    max-height: 100vh;
+    min-height: 100vh;
     position: absolute;
 }
 
 .ChatContainer{
     width: 100%;
-    height: 100%;
-    background-image: linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 0));
+    max-height: 100vh;
+    min-height: 100vh;
+    background-color: rgba(255, 0, 0, 0);
     display: flex;
     align-items: center;
     flex-flow: column;
@@ -26,14 +27,48 @@
 }
 
 ol {
-    --mask: linear-gradient(to bottom, 
+    --mask: linear-gradient(to top, 
         rgba(0,0,0, 1) 0,   rgba(0,0,0, 1) 40%, 
         rgba(0,0,0, 0) 95%, rgba(0,0,0, 0) 0
     ) 100% 50% / 100% 100% repeat-x;
-    
+    height: 100%;
     border: 1px #d8d8d8 dashed;
     font: 2em/1.6em Arial;
     -webkit-mask: var(--mask); 
     mask: var(--mask);
+    padding: 0 !important;
+    border: 0;
+    margin: 0;
+}
+
+
+.overrideStyle{
+    background-color: rgba(255, 255, 255, 0) !important; 
+    border-color: rgba(255, 255, 255, 0)!important; 
+  }
+  
+  .overrideStyleInput{
+    background-color: rgba(255, 255, 255, 0) !important; 
+    border-color: rgba(255, 255, 255, 0)!important; 
+
     
   }
+  .overrideStyleMessageList{
+  
+    border-color: rgba(0, 0, 0, 0)!important; 
+    
+  }
+
+  .cs-message-list{
+
+    background-color: rgba(255, 255, 255, 0) !important; 
+    border-color: rgba(255, 255, 255, 0)!important; 
+  }
+
+.scrollbar-container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+

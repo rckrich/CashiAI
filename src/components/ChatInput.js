@@ -1,12 +1,13 @@
-
+import styles from "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
+import {
+  MessageInput,
+} from "@chatscope/chat-ui-kit-react";
 
 export const ChatInput = () => {
 
     return (
 
-            <div style={{maxWidth:"100vw", maxHeight: "40px"}}>
-            <input className='InputChat' placeholder='Escribe aqui...'></input>
-            </div>
+        <MessageInput placeholder="Type message here" />
 
     )
 }
