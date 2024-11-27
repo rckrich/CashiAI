@@ -9,7 +9,7 @@ function App() {
   const {route} = useContext(ElementContextRoute);
 
   let currentPage ;
-  console.log(1.1);
+  console.log(1.2);
   switch (route) {
     case "":
       currentPage = (<LoadingPage></LoadingPage>)
