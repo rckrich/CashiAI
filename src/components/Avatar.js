@@ -6,15 +6,15 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 
 const corresponding = {
-  A: "viseme_PP",
-  B: "viseme_kk",
+    A: "viseme_PP",
+  B: "viseme_RR",
   C: "viseme_I",
-  D: "viseme_AA",
-  E: "viseme_O",
-  F: "viseme_U",
-  G: "viseme_FF",
+    D: "viseme_aa",
+    E: "viseme_O",
+    F: "viseme_U",
+    G: "viseme_FF",
   H: "viseme_TH",
-  X: "viseme_PP",
+    X: "viseme_sil",
 };
 
 export function Avatar(props) {
@@ -32,7 +32,7 @@ export function Avatar(props) {
     morphTargetSmoothing: 0.5,
     script: {
       value: "welcome",
-      options: ["welcome", "pizzas"],
+      options: ["welcome", "pizzas", "rodAudio"],
     },
   });
 
