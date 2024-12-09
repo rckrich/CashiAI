@@ -1,0 +1,20 @@
+.input {
+    margin-top: 1vh;
+    width: 75vw;
+    height: 4vh;
+    border-radius: 10px;
+    border: 3px solid #5C1F99;
+    outline: none;
+    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    padding: 10px;
+}
+.input:hover {
+    border: 3px solid #5C1F99;
+}
+input::placeholder {
+    padding: 3px;
+}
