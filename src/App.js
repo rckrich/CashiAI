@@ -16,7 +16,7 @@ function App() {
       currentPage = (<LoadingPage></LoadingPage>)
       break;
     case "Main":
-      currentPage = (<MainPage></MainPage>)
+      currentPage = (null)
       break;
     case "Login":
       currentPage = (<LoginPage></LoginPage>)
@@ -29,6 +29,7 @@ function App() {
   return (
     <div className="App">
       <>{currentPage}</>
+      <MainPage></MainPage>
     </div>
   );
 }

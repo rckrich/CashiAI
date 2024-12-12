@@ -1,8 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import '../styles/LoginPage.css';
 
+import '../styles/LoginPage.css';
+import React, { useContext } from "react";
+import { ElementContextRoute } from "../context/RouteContext";
 export const LoginPage = () => {
+    const {changeRoute} = useContext(ElementContextRoute);
+    const onClickChangeRoute= () =>{
+        changeRoute("Main")
+    }
+
     return (
         <div className = "backgorund" style={{backgroundColor: "white", width: "100vw", height: "100vh", display: "flex", justifyContent: "center"}}>
             <div>
@@ -23,7 +28,7 @@ export const LoginPage = () => {
                         <h3 style={{color: "#5C1F99", marginBottom: "0", marginTop: "1.5vh"}}>Edad</h3>
                         <input className= "input" placeholder='Edad' type="number" />
                     </div>
-                    <button style ={{marginTop: "3vh", backgroundColor: "#5C1F99", color: "white", borderRadius: "25px", height: "5vh"}}>Continuar</button>
+                    <button onClick={onClickChangeRoute} style ={{marginTop: "3vh", backgroundColor: "#5C1F99", color: "white", borderRadius: "25px", height: "5vh"}}>Continuar</button>
                 </div>
                 
             </div>
