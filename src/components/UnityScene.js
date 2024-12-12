@@ -6,6 +6,7 @@ import React, { useCallback, useEffect, useState } from "react";
 export const UnityScene = () => {
     const {
         unityProvider,
+        isLoaded,
         addEventListener,
         removeEventListener, sendMessage
       } = useUnityContext({
@@ -14,18 +15,22 @@ export const UnityScene = () => {
         frameworkUrl: "/unitybuild/unityBuild.framework.js",
         codeUrl: "/unitybuild/unityBuild.wasm",
       });
-      const [isLoaded, setIsGameLoaded] = useState(false);
+      const [isLoadedInternal, setIsGameLoadedInternal] = useState(false);
 
       const handleLoaded = useCallback(() => {
-        setIsGameLoaded(true);
-        if(window.innerWidth <= 768){
-            console.log("Mobil")
-            
-        }else{
-            sendMessage("ReactController", "AdjustSize", 100);
-            console.log("Desktop")
-        }
+        setIsGameLoadedInternal(true);
       }, []);
+
+      useEffect(() => {
+        if(window.innerWidth <= 768){
+          console.log("Mobil")
+          
+      }else{
+          sendMessage("ReactController", "AdjustSize", 100);
+          console.log("Desktop")
+      }
+      }, [isLoaded]);
+
 
 
 
@@ -42,7 +47,7 @@ export const UnityScene = () => {
     return (
         <div className={"containerU"}>
             <div className={"unityWrapper"}>
-                {!isLoaded ? <LoadingPage/> : null }
+                {!isLoadedInternal ? <LoadingPage/> : null }
             <Unity
                 unityProvider={unityProvider}
                 style={{ width: "99%", height: "99%" }}
