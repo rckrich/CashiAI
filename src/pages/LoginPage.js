@@ -58,7 +58,7 @@ export const LoginPage = () => {
                         <h3 style={{color: "#5C1F99", marginBottom: "0", marginTop: "1.5vh"}}>Edad</h3>
                         <input className= "input_web" placeholder='Edad' type="number" />
                     </div>
-                    <button style ={{marginTop: "3vh", backgroundColor: "#5C1F99", color: "white", borderRadius: "25px", height: "6vh"}}>Continuar</button>
+                    <button onClick={onClickChangeRoute}  style ={{marginTop: "3vh", backgroundColor: "#5C1F99", color: "white", borderRadius: "25px", height: "6vh"}}>Continuar</button>
                 </div>
             </div>
             <h4 style={{fontSize: "12px", textAlign: "center", position: "fixed", bottom: "0"}}>Términos de servicio | Política de privacidad</h4>
