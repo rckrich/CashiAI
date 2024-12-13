@@ -12,7 +12,7 @@ const ElementProviderOpenAi= ({ children }) => {
 
 useEffect(() => {
     if(ActiveThread === ""){
-        handleNewThread();
+        //handleNewThread();
     }
 }, [ActiveThread])
 

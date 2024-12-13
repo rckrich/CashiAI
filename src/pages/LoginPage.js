@@ -7,11 +7,13 @@ export const LoginPage = () => {
     const inputRefName = useRef(null);
     const inputRefEmail = useRef(null);
     const inputRefEdad = useRef(null);
+    console.log("LOGGGGGIN")
+
     const onClickChangeRoute= () =>{
         changeRoute("Main")
     }
     const onClickLogIn = async () => {
-        if(inputRefName.current.value.trim() != "" && inputRefEmail.current.value.trim() != "" && inputRefEdad.current.value.trim() != ""){
+        if(inputRefName.current.value.trim() !== "" && inputRefEmail.current.value.trim() !== "" && inputRefEdad.current.value.trim() !== ""){
             const response = fetch( "http://165.232.151.217/api/v1/signin",{
                 method: "POST",
                 headers: {
@@ -32,6 +34,8 @@ export const LoginPage = () => {
                 console.log(data);
             })
         }
+    }
+
 
     if(window.innerWidth <= 768){
         console.log("Mobil")
@@ -84,7 +88,7 @@ export const LoginPage = () => {
                         <h3 style={{color: "#5C1F99", marginBottom: "0", marginTop: "1.5vh"}}>Edad</h3>
                         <input className= "input_web" placeholder='Edad' type="number" ref={inputRefEdad} />
                     </div>
-                    <button onClick={onClickLogIn}  style ={{marginTop: "3vh", backgroundColor: "#5C1F99", color: "white", borderRadius: "25px", height: "6vh"}}>Continuar</button>
+                    <button onClick={onClickChangeRoute}  style ={{marginTop: "3vh", backgroundColor: "#5C1F99", color: "white", borderRadius: "25px", height: "6vh"}}>Continuar</button>
                 </div>
             </div>
             <h4 style={{fontSize: "12px", textAlign: "center", position: "fixed", bottom: "0"}}>Términos de servicio | Política de privacidad</h4>
@@ -92,5 +96,5 @@ export const LoginPage = () => {
         )
     }
 
-}
+    
 }
