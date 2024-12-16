@@ -26,14 +26,14 @@ export const UnityScene = () => {
       useEffect(() => {
         if(window.innerWidth <= 768){
           if(id != null && isSetWebCall === false){
-            sendMessage("ReactController", "reactWebCall", id);
+            sendMessage("ReactController", "reactWebCall", id.toString());
             setIsSetWebCall(true);
           }
           console.log("Mobil")
           
       }else{
         if(id != null && isSetWebCall === false){
-          sendMessage("ReactController", "reactWebCall", id);
+          sendMessage("ReactController", "reactWebCall", id.toString());
           setIsSetWebCall(true);
         }
           sendMessage("ReactController", "AdjustSize", 100);
@@ -42,8 +42,9 @@ export const UnityScene = () => {
       }, [isLoaded]);
 
       useEffect(() => {
+        
         if(id != null && isSetWebCall === false){
-          sendMessage("ReactController", "reactWebCall", id);
+          sendMessage("ReactController", "reactWebCall", id.toString());
           setIsSetWebCall(true);
         }
       }, [id]);
@@ -57,13 +58,12 @@ export const UnityScene = () => {
       }, [addEventListener, removeEventListener, handleLoaded]);
 
 
-
-      console.log(isLoaded)
     return (
         <div className={"containerU"}>
             <div className={"unityWrapper"}>
                 {!isLoadedInternal ? <LoadingPage/> : null }
             <Unity
+                tabIndex={1}
                 unityProvider={unityProvider}
                 style={{ width: "99%", height: "99%" }}
             />

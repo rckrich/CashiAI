@@ -7,30 +7,63 @@ export const LoginPage = () => {
     const inputRefName = useRef(null);
     const inputRefEmail = useRef(null);
     const inputRefEdad = useRef(null);
+    const inputRefNameM = useRef(null);
+    const inputRefEmailM = useRef(null);
+    const inputRefEdadM = useRef(null);
 
     const onClickLogIn = async () => {
-        if(inputRefName.current.value.trim() !== "" && inputRefEmail.current.value.trim() !== "" && inputRefEdad.current.value.trim() !== ""){
-            const response = fetch( "http://165.232.151.217/api/v1/signin",{
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    name: inputRefName.current.value,
-                    email: inputRefEmail.current.value,
-                    age: inputRefEdad.current.value
+        console.log()
+        if(window.innerWidth <= 768){
+            console.log("1")
+            if(inputRefNameM.current.value.trim() !== "" && inputRefEmailM.current.value.trim() !== "" && inputRefEdadM.current.value.trim() !== ""){
+                const response = fetch( "http://165.232.151.217/api/v1/signin",{
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        name: inputRefNameM.current.value,
+                        email: inputRefEmailM.current.value,
+                        age: inputRefEdadM.current.value
+                    })
                 })
-            })
-            .then(response => {
-                if(!response.ok){
-                    throw new Error("Error en el servidor");
-                }
-                return response.json();
-            }).then(data =>{
-                changeRoute("Main")
-                setId(data.id);
-                console.log(data);
-            })
+                .then(response => {
+                    if(!response.ok){
+                        throw new Error("Error en el servidor");
+                    }
+                    return response.json();
+                }).then(data =>{
+                    changeRoute("Main")
+                    setId(data.id);
+                    console.log(data);
+                })
+            }
+
+        }else{
+            console.log("2")
+            if(inputRefName.current.value.trim() !== "" && inputRefEmail.current.value.trim() !== "" && inputRefEdad.current.value.trim() !== ""){
+                const response = fetch( "http://165.232.151.217/api/v1/signin",{
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        name: inputRefName.current.value,
+                        email: inputRefEmail.current.value,
+                        age: inputRefEdad.current.value
+                    })
+                })
+                .then(response => {
+                    if(!response.ok){
+                        throw new Error("Error en el servidor");
+                    }
+                    return response.json();
+                }).then(data =>{
+                    changeRoute("Main")
+                    setId(data.id);
+                    console.log(data);
+                })
+            }
         }
     }
 
@@ -47,15 +80,15 @@ export const LoginPage = () => {
                     <div className='inputHolder' style={{display: "grid", justifyContent: "center"}}>
                         <div className= "inputName">
                             <h3 style={{color: "#5C1F99", marginBottom: "0", marginTop: "1.5vh"}}>Nombre</h3>
-                            <input placeholder="Nombre" type="text" className= "input"/>
+                            <input placeholder="Nombre" type="text" className= "input" ref={inputRefNameM}/>
                         </div>
                         <div className="inputEmail">
                             <h3 style={{color: "#5C1F99", marginBottom: "0", marginTop: "0", marginTop: "1.5vh"}}>Email</h3>
-                            <input placeholder='Email' type='email' className= "input"/>
+                            <input placeholder='Email' type='email' className= "input" ref={inputRefEmailM}/>
                         </div>
                         <div className='inputAge'>
                             <h3 style={{color: "#5C1F99", marginBottom: "0", marginTop: "1.5vh"}}>Edad</h3>
-                            <input className= "input" placeholder='Edad' type="number" />
+                            <input className= "input" placeholder='Edad' type="number" ref={inputRefEdadM}/>
                         </div>
                         <button onClick={onClickLogIn} style ={{marginTop: "3vh", backgroundColor: "#5C1F99", color: "white", borderRadius: "25px", height: "5vh"}}>Continuar</button>
                     </div>
