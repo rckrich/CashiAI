@@ -8,7 +8,7 @@ import { MainPage } from './pages/MainPage';
 import {LoginPage} from './pages/LoginPage'
 function App() {
   const {route} = useContext(ElementContextRoute);
-  console.log("1.4")
+  console.log("1.5")
   let currentPage ;
   switch (route) {
     case "":
