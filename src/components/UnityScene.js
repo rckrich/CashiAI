@@ -12,10 +12,10 @@ export const UnityScene = () => {
         addEventListener,
         removeEventListener, sendMessage
       } = useUnityContext({
-        loaderUrl: "/unitybuild/unityBuild.loader.js",
-        dataUrl: "/unitybuild/unityBuild.data",
-        frameworkUrl: "/unitybuild/unityBuild.framework.js",
-        codeUrl: "/unitybuild/unityBuild.wasm",
+        loaderUrl: "/unitybuild/Build/unityBuild.loader.js",
+        dataUrl: "/unitybuild/Build/unityBuild.data",
+        frameworkUrl: "/unitybuild/Build/unityBuild.framework.js",
+        codeUrl: "/unitybuild/Build/unityBuild.wasm",
       });
       const [isLoadedInternal, setIsGameLoadedInternal] = useState(false);
 
