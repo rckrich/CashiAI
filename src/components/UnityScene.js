@@ -65,7 +65,7 @@ export const UnityScene = () => {
             <Unity
                 tabIndex={1}
                 unityProvider={unityProvider}
-                style={{ width: "99%", height: "99%" }}
+                style={{ width: "100%", height: "100%" }}
             />
             
             </div>
