@@ -26,14 +26,14 @@ export const UnityScene = () => {
       useEffect(() => {
         if(window.innerWidth <= 768){
           if(id != null && isSetWebCall === false){
-            sendMessage("ReactController", "reactWebCall", id.toString());
+            sendMessage("ReactController", "reactWebCall", id);
             setIsSetWebCall(true);
           }
           console.log("Mobil")
           
       }else{
         if(id != null && isSetWebCall === false){
-          sendMessage("ReactController", "reactWebCall", id.toString());
+          sendMessage("ReactController", "reactWebCall", id);
           setIsSetWebCall(true);
         }
           sendMessage("ReactController", "AdjustSize", 100);
@@ -44,7 +44,7 @@ export const UnityScene = () => {
       useEffect(() => {
         
         if(id != null && isSetWebCall === false){
-          sendMessage("ReactController", "reactWebCall", id.toString());
+          sendMessage("ReactController", "reactWebCall", id);
           setIsSetWebCall(true);
         }
       }, [id]);
